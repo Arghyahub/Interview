@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div,
+    button,
+    p {
+      padding: 1rem;
+      border: 1px solid red;
+    }
+  </style>
+  <body>
+    <!-- Delegation -->
+    <div>
+      DIV
+      <button>
+        <p>Hemlo</p>
+      </button>
+    </div>
+  </body>
+  <script>
+    const div = document.querySelector("div");
+    const button = document.querySelector("button");
+    const p = document.querySelector("p");
+
+    div.addEventListener("click", function (event) {
+      alert("div");
+    });
+    button.addEventListener("click", function (event) {
+      alert("button");
+    });
+    p.addEventListener("click", function (event) {
+      if (event.target.closest("button")) alert("button");
+      // alert("p");
+    });
+  </script>
+</html>

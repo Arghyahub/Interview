@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div,
+    button,
+    form {
+      padding: 1rem;
+      border: 1px solid red;
+    }
+  </style>
+  <body>
+    <!-- Capturing or Trickling -->
+    <h1>Event bubbling from child to parent</h1>
+    <div>
+      DIV
+      <form>
+        FORM
+        <button type="button">ok</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const div = document.querySelector("div");
+    const button = document.querySelector("button");
+    const form = document.querySelector("form");
+
+    div.addEventListener(
+      "click",
+      function () {
+        alert("div");
+      },
+      {
+        capture: true,
+      }
+    );
+    form.addEventListener(
+      "click",
+      function () {
+        alert("form");
+      },
+      {
+        capture: true,
+      }
+    );
+    button.addEventListener(
+      "click",
+      function () {
+        alert("button");
+      },
+      {
+        capture: true,
+      }
+    );
+  </script>
+</html>
